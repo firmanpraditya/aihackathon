@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Hackathon — Panduan Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">AI <span>Hackathon</span></div>
+    <div class="header-divider"></div>
+    <div class="header-sub">Panduan Pembuatan Prototype · Google AI Environment</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Panduan Resmi Hackathon</div>
+  <h1>Panduan <em>Step-by-Step</em><br>Pembuatan Prototype</h1>
+  <p>Panduan lengkap untuk semua kelompok — dari persiapan data, pembuatan sistem, hingga demo presentasi. Tidak perlu latar belakang IT.</p>
+  <div class="hero-teams">
+    <a class="hero-team-chip" onclick="switchTab('avenger')" style="color:#E8673A;border-color:#E8673A80;">⚡ Avenger</a>
+    <a class="hero-team-chip" onclick="switchTab('autopack')" style="color:#3A8E6E;border-color:#3A8E6E80;">📦 Autopack Smart</a>
+    <a class="hero-team-chip" onclick="switchTab('teknik')" style="color:#7B5EA7;border-color:#7B5EA780;">🔧 Tim Teknik</a>
+    <a class="hero-team-chip" onclick="switchTab('sparepart')" style="color:#C4882A;border-color:#C4882A80;">⚙️ Sparepart MA1</a>
+    <a class="hero-team-chip" onclick="switchTab('engpro')" style="color:#3A6EA8;border-color:#3A6EA880;">🏭 Engpro Advance</a>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main-container">
+
+  <!-- TABS -->
+  <div class="tabs-wrapper">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="avenger" onclick="switchTab('avenger')">
+        <span class="tab-dot"></span> ⚡ Avenger
+      </button>
+      <button class="tab-btn" data-tab="autopack" onclick="switchTab('autopack')">
+        <span class="tab-dot"></span> 📦 Autopack Smart
+      </button>
+      <button class="tab-btn" data-tab="teknik" onclick="switchTab('teknik')">
+        <span class="tab-dot"></span> 🔧 Tim Teknik
+      </button>
+      <button class="tab-btn" data-tab="sparepart" onclick="switchTab('sparepart')">
+        <span class="tab-dot"></span> ⚙️ Sparepart MA1
+      </button>
+      <button class="tab-btn" data-tab="engpro" onclick="switchTab('engpro')">
+        <span class="tab-dot"></span> 🏭 Engpro Advance
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: AVENGER (TIM A) -->
+  <!-- ============================================================ -->
+  <div class="tab-panel active" id="panel-avenger">
+
+    <div class="team-header avenger" data-emoji="⚡">
+      <div class="team-label">Tim A</div>
+      <h2>Avenger</h2>
+      <div class="team-desc">Analisa otomatis data akuisisi produksi — bandingkan aktual vs standar R&D, hasilkan laporan harian yang konsisten dan bebas interpretasi ganda.</div>
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">🔴 Sebelum</div>
+        <ul>
+          <li>Tarik data manual dari software — minimal 2 jam/hari</li>
+          <li>Setiap orang bisa punya interpretasi berbeda dari data yang sama</li>
+          <li>Tidak ada standar pelaporan yang konsisten</li>
+          <li>Potensi mutu produk terlewat karena analisa lambat</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">🟢 Sesudah</div>
+        <ul>
+          <li>Upload Excel → AI analisa otomatis dalam hitungan detik</li>
+          <li>Perbandingan standar vs aktual langsung terlihat jelas</li>
+          <li>Laporan harian terkirim otomatis setiap pagi via email</li>
+          <li>Satu interpretasi yang seragam untuk semua pihak</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps-section">
+      <div class="section-title">
+        Langkah-langkah Pembuatan Prototype
+        <div class="title-line"></div>
+      </div>
+
+      <div class="steps-list">
+
+        <!-- STEP 1 -->
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--avenger)">1</div>
+            <div class="step-title-text">Persiapan Data & Encode</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Sebelum apapun, semua data yang akan dimasukkan ke sistem AI <strong>harus di-encode</strong> terlebih dahulu untuk menjaga kerahasiaan data perusahaan.</p>
+            <div class="info-box warning">
+              <span class="info-icon">⚠️</span>
+              <div><strong>Wajib dilakukan:</strong> Ganti nama produk asli → PRD-001, PRD-002. Ganti kode batch → BCH-001. Simpan tabel mapping di file lokal yang tidak diupload ke AI.</div>
+            </div>
+            <p><strong>Yang perlu disiapkan:</strong></p>
+            <ol>
+              <li>Export data dari software akuisisi dalam format Excel (file .xlsx)</li>
+              <li>Encode nama produk dan kode batch — buat tabel mapping terpisah</li>
+              <li>Siapkan dokumen standar parameter dari R&D (sudah di-encode)</li>
+              <li>Tentukan email tujuan laporan: manajer produksi, supervisor QC</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--avenger)">2</div>
+            <div class="step-title-text">Setup Google Sheets — Database Standar & Aktual</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Buat Google Sheets sebagai pusat data. Semua komparasi akan terjadi di sini.</p>
+            <ol>
+              <li>Buka <strong>sheets.google.com</strong> → klik "+ Blank spreadsheet"</li>
+              <li>Beri nama: <strong>"Analisa Data Produksi - Avenger"</strong></li>
+              <li>Buat 3 sheet (tab di bawah): klik tanda <strong>+</strong> untuk menambah sheet</li>
+            </ol>
+            <table class="data-table">
+              <thead><tr>
+                <th style="background:var(--avenger)">Nama Sheet</th>
+                <th style="background:var(--avenger)">Fungsi</th>
+                <th style="background:var(--avenger)">Kolom yang Diperlukan</th>
+              </tr></thead>
+              <tbody>
+                <tr><td><strong>Data Aktual</strong></td><td>Tempat paste data export software</td><td>Timestamp, Kode Produk, Kode Batch, Parameter 1, Parameter 2, dst</td></tr>
+                <tr><td><strong>Standar R&D</strong></td><td>Referensi batas standar</td><td>Kode Produk, Parameter, Nilai Min, Nilai Max, Satuan, Risiko</td></tr>
+                <tr><td><strong>Hasil Analisa</strong></td><td>Output komparasi otomatis</td><td>Diisi otomatis oleh Apps Script</td></tr>
+              </tbody>
+            </table>
+            <div class="info-box tip">
+              <span class="info-icon">💡</span>
+              <div>Sheet "Standar R&D" cukup diisi sekali dan diupdate jika ada perubahan standar dari R&D. Sheet "Data Aktual" diisi/ditambah setiap kali ada data baru.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--avenger)">3</div>
+            <div class="step-title-text">Buat Apps Script — Komparasi & Email Otomatis</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Apps Script adalah "robot" yang bekerja otomatis di balik layar. Kita tidak perlu menulis kode sendiri — minta Gemini membuatkannya.</p>
+            <p><strong>Cara membuka Apps Script:</strong></p>
+            <ol>
+              <li>Di Google Sheets → klik menu <strong>Extensions</strong> (atau "Ekstensi")</li>
+              <li>Klik <strong>Apps Script</strong></li>
+              <li>Editor kode akan terbuka di tab baru</li>
+              <li>Hapus semua kode yang sudah ada (Ctrl+A → Delete)</li>
+              <li>Copy-paste kode dari Gemini (gunakan prompt di bawah)</li>
+              <li>Klik tombol <strong>Save</strong> (ikon disket) → klik <strong>Run</strong> → izinkan akses</li>
+            </ol>
+
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Saya punya Google Sheets "Analisa Data Produksi" dengan:
+
+Sheet "Data Aktual" kolom:
+Timestamp, Kode Produk, Kode Batch, Suhu (°C), Berat (gram), Tekanan (bar)
+[sesuaikan dengan parameter aktual di datamu]
+
+Sheet "Standar R&D" kolom:
+Kode Produk, Parameter, Nilai Min, Nilai Max, Satuan, Risiko
+
+Tolong buatkan Google Apps Script yang:
+1. Setiap hari jam 07.00 baca semua data dari hari sebelumnya
+2. Bandingkan setiap nilai aktual dengan standar yang sesuai
+3. Isi sheet "Hasil Analisa" dengan semua kolom data + STATUS (SESUAI/TIDAK SESUAI) + DEVIASI
+4. Warnai baris: hijau jika SESUAI, merah jika TIDAK SESUAI
+5. Buat ringkasan: total data, jumlah sesuai, jumlah tidak sesuai per parameter
+6. Kirim email ke [isi email manajer] dengan ringkasan dan link ke sheet
+
+Tambahkan komentar penjelasan di setiap bagian kode agar mudah dipahami.</pre>
+            </div>
+
+            <div class="info-box tip">
+              <span class="info-icon">💡</span>
+              <div>Jika ada error saat menjalankan script: copy pesan error yang muncul → paste ke Gemini dengan kalimat <em>"Tolong perbaiki error ini: [paste error]"</em></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--avenger)">4</div>
+            <div class="step-title-text">Analisa Mendalam dengan Gemini AI Studio</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Untuk analisa pola bulanan atau tren deviasi, gunakan <strong>Gemini AI Studio</strong> karena bisa upload file Excel langsung.</p>
+            <ol>
+              <li>Buka <strong>aistudio.google.com</strong> → login dengan akun Google</li>
+              <li>Klik <strong>"New Prompt"</strong></li>
+              <li>Klik ikon upload (📎) → upload file Excel data (sudah di-encode)</li>
+              <li>Ketik prompt analisa di kolom chat</li>
+              <li>Klik <strong>Run</strong> → tunggu hasil analisa</li>
+            </ol>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>File yang saya upload adalah data parameter produksi selama 1 bulan.
+Data sudah di-encode: nama produk diganti PRD-001 dst.
+
+Tolong analisa dan berikan:
+1. Parameter mana yang paling sering menyimpang dari standar?
+2. Apakah ada pola waktu (shift/hari) ketika deviasi lebih sering terjadi?
+3. Adakah korelasi antara deviasi satu parameter dengan parameter lain?
+4. Rekomendasi 3 tindakan prioritas untuk meningkatkan konsistensi kualitas
+5. Buat ringkasan eksekutif 1 paragraf untuk dilaporkan ke manajemen</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--avenger)">5</div>
+            <div class="step-title-text">Gunakan Gemini Canvas untuk Prototype Visual</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Gemini Canvas memungkinkan pembuatan aplikasi web interaktif langsung dari chat — tanpa coding! Cocok untuk demo presentasi yang lebih menarik.</p>
+
+            <div class="canvas-guide">
+              <div class="canvas-guide-header">
+                <div class="canvas-icon">🎨</div>
+                <div>
+                  <strong>Cara Menggunakan Gemini Canvas</strong>
+                  <span style="display:block">gemini.google.com</span>
+                </div>
+              </div>
+              <div class="canvas-steps">
+                <div class="canvas-step">
+                  <div class="canvas-step-num">1</div>
+                  <div class="canvas-step-text">Buka <strong>gemini.google.com</strong> → login dengan akun Google → klik <strong>"New Chat"</strong></div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">2</div>
+                  <div class="canvas-step-text">Ketik prompt di bawah ini langsung di kotak chat Gemini</div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">3</div>
+                  <div class="canvas-step-text">Gemini akan otomatis membuka <strong>panel Canvas</strong> di sebelah kanan dan membangun aplikasinya secara real-time</div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">4</div>
+                  <div class="canvas-step-text">Kamu bisa langsung <strong>mencoba aplikasi</strong> di dalam Canvas — input data, klik tombol, lihat hasilnya</div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">5</div>
+                  <div class="canvas-step-text">Untuk merevisi: ketik permintaan perubahan di chat, misal <em>"Tambahkan kolom Tekanan"</em> atau <em>"Ubah warna tombol menjadi oranye"</em></div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">6</div>
+                  <div class="canvas-step-text">Untuk menyimpan: klik tombol <strong>"Share"</strong> atau <strong>"Export"</strong> di sudut Canvas</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="canvas-preview">
+              <div class="preview-icon">🖥️</div>
+              <strong>Tampilan Canvas di Gemini</strong>
+              Chat Gemini ada di kiri, panel Canvas (pratinjau aplikasi) muncul di kanan.<br>
+              Perubahan langsung terlihat saat kamu mengetik revisi di chat.
+            </div>
+
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan aplikasi web interaktif untuk analisa data parameter produksi dengan fitur:
+
+1. TABEL INPUT DATA:
+   - Kolom: Kode Produk, Parameter, Nilai Aktual, Nilai Min Standar, Nilai Max Standar
+   - Tombol "Tambah Baris" untuk menambah data
+   - Bisa diisi langsung di tabel
+
+2. TOMBOL ANALISA:
+   - Klik "Analisa Otomatis" → sistem langsung:
+   - Hitung STATUS: SESUAI (hijau) atau TIDAK SESUAI (merah) untuk setiap baris
+   - Tampilkan ringkasan: berapa SESUAI vs TIDAK SESUAI
+   - Highlight baris yang bermasalah
+
+3. RINGKASAN HASIL:
+   - Summary box di atas: total data, % kesesuaian, parameter paling sering menyimpang
+   - Rekomendasi tindakan sederhana
+
+Desain harus bersih, profesional, dan mudah dipahami manajer produksi.
+Buatkan dalam bentuk aplikasi web interaktif yang bisa langsung digunakan.</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--avenger)">6</div>
+            <div class="step-title-text">Upload Standar R&D ke NotebookLM</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>NotebookLM bisa "membaca" dokumen standar R&D dan menjawab pertanyaan spesifik tentang isinya — sangat berguna saat perlu cek batas toleransi atau prosedur penanganan deviasi.</p>
+            <ol>
+              <li>Buka <strong>notebooklm.google.com</strong> → klik <strong>"+ New Notebook"</strong></li>
+              <li>Klik <strong>"Add Sources"</strong> → upload dokumen standar R&D (sudah di-encode)</li>
+              <li>Tunggu proses indexing selesai (biasanya 1-2 menit)</li>
+              <li>Ketik pertanyaan di kotak chat</li>
+            </ol>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Contoh pertanyaan ke NotebookLM:
+
+- "Berapa batas toleransi suhu untuk produk PRD-001?"
+- "Apa dampak jika berat produk PRD-002 berada di bawah standar minimum?"
+- "Prosedur apa yang harus diikuti jika tekanan menyimpang lebih dari 10%?"
+- "Rangkumkan semua parameter kritis yang mempengaruhi mutu produk PRD-001"
+- "Bandingkan standar parameter antara PRD-001 dan PRD-002"</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: AUTOPACK SMART (TIM B) -->
+  <!-- ============================================================ -->
+  <div class="tab-panel" id="panel-autopack">
+
+    <div class="team-header autopack" data-emoji="📦">
+      <div class="team-label">Tim B</div>
+      <h2>Autopack Smart System</h2>
+      <div class="team-desc">Sistem input digital + dashboard monitoring real-time untuk 40 mesin Auto Pack — dari rekap manual 4 jam/hari menjadi laporan otomatis setiap pagi.</div>
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">🔴 Sebelum</div>
+        <ul>
+          <li>40 lembar form kertas setiap hari</li>
+          <li>Rekap manual membutuhkan 4 jam kerja</li>
+          <li>Tidak ada dashboard — status mesin tidak diketahui real-time</li>
+          <li>Laporan partial dan tidak konsisten</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">🟢 Sesudah</div>
+        <ul>
+          <li>Operator input via HP — tampilan keren dan mudah digunakan</li>
+          <li>Dashboard real-time: langsung tahu mesin mana yang bermasalah</li>
+          <li>Rekap otomatis — 0 jam kerja manual</li>
+          <li>Laporan harian + narasi AI terkirim email setiap pagi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps-section">
+      <div class="section-title">
+        Langkah-langkah Pembuatan Prototype
+        <div class="title-line"></div>
+      </div>
+
+      <div class="steps-list">
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--autopack)">1</div>
+            <div class="step-title-text">Persiapan Google Sheets</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Google Sheets akan menjadi "database" tempat semua data dari operator tersimpan secara otomatis.</p>
+            <ol>
+              <li>Buka <strong>sheets.google.com</strong> → buat spreadsheet baru</li>
+              <li>Beri nama: <strong>"Monitoring Auto Pack"</strong></li>
+              <li>Buat 3 sheet berikut:</li>
+            </ol>
+            <table class="data-table">
+              <thead><tr>
+                <th style="background:var(--autopack)">Nama Sheet</th>
+                <th style="background:var(--autopack)">Fungsi</th>
+                <th style="background:var(--autopack)">Kolom Utama</th>
+              </tr></thead>
+              <tbody>
+                <tr><td><strong>Data Harian</strong></td><td>Semua input operator masuk ke sini</td><td>Timestamp, Tanggal, Shift, Operator, Kode Mesin, [parameter], Status</td></tr>
+                <tr><td><strong>Standar Mesin</strong></td><td>Nilai standar per mesin</td><td>Kode Mesin, Parameter, Nilai Min, Nilai Max</td></tr>
+                <tr><td><strong>Rekap Harian</strong></td><td>Ringkasan harian otomatis</td><td>Tanggal, Total Mesin, Pass, Fail, Narasi AI</td></tr>
+              </tbody>
+            </table>
+            <p>Isi sheet <strong>Standar Mesin</strong> dengan nilai standar dari masing-masing mesin (data sudah di-encode). Sheet <strong>Data Harian</strong> dan <strong>Rekap Harian</strong> akan terisi otomatis oleh sistem.</p>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--autopack)">2</div>
+            <div class="step-title-text">Buat Web App dengan Apps Script + HTML</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Web App ini akan menjadi interface utama yang digunakan operator dari HP. Tampilannya bisa dibuat keren dan profesional menggunakan HTML.</p>
+            <p><strong>Cara membuat Web App di Apps Script:</strong></p>
+            <ol>
+              <li>Di Google Sheets → klik <strong>Extensions → Apps Script</strong></li>
+              <li>Di editor, klik ikon <strong>"+"</strong> di sebelah "Files" → pilih <strong>HTML</strong> → beri nama <strong>index</strong></li>
+              <li>Sekarang kamu punya 2 file: <strong>Code.gs</strong> (logika) dan <strong>index.html</strong> (tampilan)</li>
+              <li>Gunakan prompt di bawah untuk generate kedua file sekaligus dari Gemini</li>
+            </ol>
+            <div class="info-box tip">
+              <span class="info-icon">💡</span>
+              <div>Minta Gemini untuk generate kode dalam 2 bagian terpisah: pertama kode untuk <strong>Code.gs</strong>, lalu kode untuk <strong>index.html</strong>. Lebih mudah dicopy satu per satu.</div>
+            </div>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan Google Apps Script + HTML untuk sistem monitoring mesin Auto Pack.
+
+STRUKTUR GOOGLE SHEETS "Monitoring Auto Pack":
+- Sheet "Data Harian": Timestamp, Tanggal, Shift, Operator, Kode Mesin,
+  Kecepatan (rpm), Berat (gram), [tambahkan parameter lain sesuai kebutuhan], Status
+- Sheet "Standar Mesin": Kode Mesin, Parameter, Nilai Min, Nilai Max
+- Sheet "Rekap Harian": Tanggal, Total Mesin, Pass, Fail, Narasi AI
+
+FITUR WEB APP YANG DIBUTUHKAN:
+
+HALAMAN 1 - FORM INPUT (untuk operator):
+- Dropdown pilih Kode Mesin (MCH-001 s/d MCH-040)
+- Dropdown pilih Shift (Pagi / Siang / Malam)
+- Input Nama Operator
+- Input nilai setiap parameter (Kecepatan, Berat, dll)
+- Setelah simpan, langsung tampilkan apakah PASS atau FAIL dengan warna
+
+HALAMAN 2 - DASHBOARD (untuk supervisor/manajer):
+- Grid kartu 40 mesin dengan warna: hijau=Pass, merah=Fail, abu=belum input
+- Summary bar: total mesin hari ini, jumlah Pass, jumlah Fail
+- Tabel detail mesin yang Fail beserta parameter bermasalahnya
+- Tombol Refresh
+
+OTOMASI di Code.gs:
+- Setiap hari jam 07.00 kirim email ringkasan ke [isi email]
+- Rekap data hari sebelumnya, hitung Pass/Fail
+- Sertakan tabel mesin bermasalah di body email
+
+Desain harus modern, bersih, responsif untuk HP.
+Berikan kode Code.gs dan index.html secara terpisah dengan komentar penjelasan.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--autopack)">3</div>
+            <div class="step-title-text">Deploy Web App & Buat QR Code</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Setelah kode selesai, deploy Web App agar bisa diakses dari HP manapun.</p>
+            <ol>
+              <li>Di Apps Script → klik <strong>Deploy → New Deployment</strong></li>
+              <li>Klik ikon ⚙️ → pilih <strong>Web App</strong></li>
+              <li>Set <strong>Execute as: Me</strong></li>
+              <li>Set <strong>Who has access: Anyone</strong></li>
+              <li>Klik <strong>Deploy</strong> → copy URL yang muncul</li>
+              <li>Test: buka URL tersebut dari HP — Web App harus bisa dibuka</li>
+            </ol>
+            <div class="info-box success">
+              <span class="info-icon">✅</span>
+              <div><strong>Buat QR Code dari URL:</strong> Buka <strong>qr-code-generator.com</strong> → paste URL Web App → Generate → Download → Print dan tempel di area kerja operator.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--autopack)">4</div>
+            <div class="step-title-text">Tambahkan Narasi AI dari Gemini API</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Setelah sistem dasar berjalan, tambahkan integrasi Gemini agar laporan email menyertakan analisa narasi otomatis.</p>
+            <p><strong>Cara dapatkan Gemini API Key:</strong></p>
+            <ol>
+              <li>Buka <strong>aistudio.google.com</strong></li>
+              <li>Klik <strong>"Get API Key"</strong> di menu kiri</li>
+              <li>Klik <strong>"Create API Key"</strong> → copy key yang muncul</li>
+              <li>Simpan key ini — jangan bagikan ke orang lain</li>
+            </ol>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Di Apps Script yang sudah ada, tambahkan fungsi getNarasiAI(dataFail) yang:
+
+1. Menerima input: array data mesin yang FAIL beserta nama parameter dan nilainya
+2. Memanggil Gemini API menggunakan UrlFetchApp.fetch() dengan API Key
+3. Prompt ke Gemini:
+   "Berikut data mesin Auto Pack yang parameter-nya tidak sesuai standar hari ini:
+   [data]. Berikan analisa singkat: potensi penyebab, dampak ke kualitas produk,
+   dan rekomendasi tindakan. Maksimal 3 paragraf singkat, bahasa mudah dipahami."
+4. Mengembalikan teks narasi dari Gemini
+5. Narasi disimpan ke sheet "Rekap Harian" kolom "Narasi AI"
+6. Narasi juga disisipkan di body email laporan harian
+
+Gunakan model: gemini-1.5-flash
+Endpoint: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
+Simpan API Key sebagai: const GEMINI_API_KEY = 'isi-api-key-di-sini';</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--autopack)">5</div>
+            <div class="step-title-text">Prototype Visual dengan Gemini Canvas</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Untuk demo presentasi yang lebih impactful, buat versi visual dashboard menggunakan Gemini Canvas.</p>
+            <div class="canvas-guide">
+              <div class="canvas-guide-header">
+                <div class="canvas-icon">🎨</div>
+                <div>
+                  <strong>Langkah Membuat di Gemini Canvas</strong>
+                  <span style="display:block">Buka gemini.google.com → New Chat → ketik prompt di bawah</span>
+                </div>
+              </div>
+              <div class="canvas-steps">
+                <div class="canvas-step">
+                  <div class="canvas-step-num">1</div>
+                  <div class="canvas-step-text">Buka Gemini → New Chat → copy-paste prompt di bawah</div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">2</div>
+                  <div class="canvas-step-text">Canvas akan terbuka di kanan — kamu bisa langsung input data contoh untuk demo</div>
+                </div>
+                <div class="canvas-step">
+                  <div class="canvas-step-num">3</div>
+                  <div class="canvas-step-text">Jika ingin merevisi tampilan, ketik di chat: <em>"Ubah warna header menjadi hijau tua"</em> atau <em>"Tambahkan grafik batang di bagian summary"</em></div>
+                </div>
+              </div>
+            </div>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan dashboard monitoring mesin Auto Pack yang interaktif dengan:
+
+1. HEADER: judul "Autopack Smart System", tanggal hari ini, summary card:
+   Total Mesin | Mesin Pass | Mesin Fail | % Kepatuhan
+
+2. GRID MESIN: kartu untuk 10 mesin (MCH-001 s/d MCH-010 untuk demo)
+   Setiap kartu: kode mesin, shift terakhir, status (PASS=hijau / FAIL=merah)
+   Klik kartu → tampil detail parameter mesin tersebut
+
+3. FORM INPUT (panel kanan atau modal):
+   Pilih mesin, input Kecepatan dan Berat, nama operator
+   Klik Simpan → kartu mesin langsung update warna
+
+4. TABEL MESIN BERMASALAH di bawah: 
+   Hanya tampil mesin yang FAIL beserta parameter yang bermasalah
+
+Desain modern dengan warna hijau sebagai aksen utama.
+Buatkan dalam bentuk aplikasi web interaktif yang bisa langsung digunakan.</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: TIM TEKNIK (TIM C) -->
+  <!-- ============================================================ -->
+  <div class="tab-panel" id="panel-teknik">
+
+    <div class="team-header teknik" data-emoji="🔧">
+      <div class="team-label">Tim C · Modul CMMS</div>
+      <h2>Tim Teknik</h2>
+      <div class="team-desc">Sistem jurnal digital bengkel yang terhubung otomatis ke historis setiap mesin. Bagian dari ekosistem CMMS bersama Tim Sparepart MA1 dan Engpro Advance.</div>
+    </div>
+
+    <div class="integration-badge" style="background:var(--teknik-light);color:var(--teknik);border:1.5px solid var(--teknik-mid)">
+      🔗 Modul CMMS — Gunakan kode mesin MCH-001 s/d MCH-049 agar bisa terintegrasi dengan Tim D & E
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">🔴 Sebelum</div>
+        <ul>
+          <li>Pencatatan aktivitas bengkel manual di Excel</li>
+          <li>Historis mesin sulit ditelusuri — data terpisah-pisah</li>
+          <li>Tidak ada integrasi antara aktivitas harian dan riwayat mesin</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">🟢 Sesudah</div>
+        <ul>
+          <li>Input digital → otomatis terhubung ke historis mesin yang sesuai</li>
+          <li>Teknisi bisa lihat riwayat mesin sebelum mulai pekerjaan</li>
+          <li>Laporan mingguan otomatis ke supervisor</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps-section">
+      <div class="section-title">Langkah-langkah Pembuatan Prototype <div class="title-line"></div></div>
+      <div class="steps-list">
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--teknik)">1</div>
+            <div class="step-title-text">Persiapan Google Sheets Tim Teknik</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <ol>
+              <li>Buat Google Sheets baru → beri nama: <strong>"Jurnal Bengkel - Tim Teknik"</strong></li>
+              <li>Buat sheet-sheet berikut:</li>
+            </ol>
+            <table class="data-table">
+              <thead><tr>
+                <th style="background:var(--teknik)">Nama Sheet</th>
+                <th style="background:var(--teknik)">Fungsi</th>
+              </tr></thead>
+              <tbody>
+                <tr><td><strong>Jurnal Harian</strong></td><td>Semua entri aktivitas bengkel masuk di sini</td></tr>
+                <tr><td><strong>Master Mesin</strong></td><td>Daftar semua mesin: kode, lokasi, interval perawatan</td></tr>
+                <tr><td><strong>Historis MCH-001</strong></td><td>Riwayat aktivitas mesin MCH-001 (buat per mesin)</td></tr>
+                <tr><td><strong>Ringkasan Mingguan</strong></td><td>Rekap otomatis per minggu</td></tr>
+              </tbody>
+            </table>
+            <div class="info-box tip">
+              <span class="info-icon">💡</span>
+              <div>Untuk demo, cukup buat sheet historis untuk 5-10 mesin dulu (MCH-001 s/d MCH-010). Bisa ditambah setelah prototype berjalan.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--teknik)">2</div>
+            <div class="step-title-text">Buat Web App Jurnal Bengkel</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Web App ini punya 2 halaman utama: form input jurnal dan halaman historis mesin.</p>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan Google Apps Script + HTML untuk sistem jurnal bengkel.
+
+GOOGLE SHEETS "Jurnal Bengkel":
+- Sheet "Jurnal Harian": Timestamp, Tanggal, Jam, Teknisi, Kode Mesin,
+  Jenis Aktivitas, Deskripsi Pekerjaan, Kode Sparepart Digunakan,
+  Durasi (menit), Status Penyelesaian, Catatan
+- Sheet "Master Mesin": Kode Mesin, Lokasi, Interval Perawatan (hari),
+  Tgl Perawatan Terakhir
+- Sheet per mesin: "Historis MCH-001", "Historis MCH-002", dst
+
+FITUR WEB APP:
+
+HALAMAN 1 - INPUT JURNAL:
+- Dropdown Kode Mesin (dari data Master Mesin)
+- Setelah pilih mesin, tampilkan info ringkas: terakhir dirawat kapan
+- Dropdown Jenis Aktivitas: Perbaikan / Pengecekan / Perawatan Berkala / Ganti Part
+- Input: Deskripsi Pekerjaan, Nama Teknisi, Kode Sparepart, Durasi (menit)
+- Dropdown Status: Selesai / Belum Selesai / Perlu Tindak Lanjut
+- Tombol Simpan → data masuk ke Jurnal Harian + otomatis copy ke sheet Historis mesin
+
+HALAMAN 2 - HISTORIS MESIN:
+- Dropdown pilih mesin → tampilkan semua riwayat aktivitas mesin tersebut
+- Filter berdasarkan jenis aktivitas
+- Tampilkan: total aktivitas, frekuensi perbaikan, sparepart yang pernah digunakan
+- Tombol "Minta Analisa AI" → kirim historis ke Gemini untuk ringkasan kondisi mesin
+
+OTOMASI Code.gs:
+- Setiap ada entri baru, otomatis copy ke sheet Historis mesin yang sesuai
+- Warnai baris: hijau=Selesai, kuning=Belum Selesai, merah=Perlu Tindak Lanjut
+- Setiap Jumat kirim email ringkasan mingguan ke supervisor
+
+Desain profesional, responsif untuk HP. Kode terpisah untuk Code.gs dan index.html.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--teknik)">3</div>
+            <div class="step-title-text">Deploy Web App</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <ol>
+              <li>Di Apps Script → klik <strong>Deploy → New Deployment</strong></li>
+              <li>Pilih type: <strong>Web App</strong></li>
+              <li>Execute as: <strong>Me</strong> | Who has access: <strong>Anyone</strong></li>
+              <li>Klik <strong>Deploy</strong> → copy URL</li>
+              <li>Test buka URL dari HP — pastikan form input bisa digunakan</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--teknik)">4</div>
+            <div class="step-title-text">Prompt Analisa AI untuk Historis Mesin</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Tombol "Minta Analisa AI" di Web App akan mengirim data historis mesin ke Gemini dan menampilkan analisa ringkasnya.</p>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Berikut adalah historis aktivitas mesin [Kode Mesin] selama 3 bulan terakhir:
+[data historis dari sheet — paste di sini]
+
+Berikan analisa:
+1. Jenis kerusakan atau aktivitas yang paling sering terjadi
+2. Apakah ada pola waktu kerusakan yang perlu diwaspadai?
+3. Sparepart apa yang paling sering digunakan?
+4. Rekomendasi tindakan preventif untuk mengurangi frekuensi perbaikan
+Gunakan bahasa yang mudah dipahami oleh teknisi dan supervisor.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--teknik)">5</div>
+            <div class="step-title-text">Prototype Visual dengan Gemini Canvas</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <div class="canvas-guide">
+              <div class="canvas-guide-header">
+                <div class="canvas-icon">🎨</div>
+                <div><strong>Gemini Canvas — Jurnal Bengkel Visual</strong><span style="display:block">gemini.google.com → New Chat</span></div>
+              </div>
+              <div class="canvas-steps">
+                <div class="canvas-step"><div class="canvas-step-num">1</div><div class="canvas-step-text">Buka Gemini → New Chat → paste prompt di bawah</div></div>
+                <div class="canvas-step"><div class="canvas-step-num">2</div><div class="canvas-step-text">Canvas otomatis terbuka — coba input beberapa data aktivitas untuk demo</div></div>
+                <div class="canvas-step"><div class="canvas-step-num">3</div><div class="canvas-step-text">Klik mesin yang berbeda di panel historis untuk lihat riwayat berbeda</div></div>
+              </div>
+            </div>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan aplikasi web jurnal bengkel interaktif dengan:
+
+1. FORM INPUT (kiri/atas):
+   - Dropdown Kode Mesin (MCH-001 s/d MCH-010 untuk demo)
+   - Setelah pilih mesin, tampilkan: "Terakhir dirawat: [tanggal simulasi]"
+   - Dropdown Jenis Aktivitas, input Deskripsi, Nama Teknisi, Durasi
+   - Dropdown Status Penyelesaian dengan kode warna
+   - Tombol "Simpan ke Jurnal"
+
+2. PANEL HISTORIS (kanan/bawah):
+   - Dropdown pilih mesin untuk lihat historis
+   - Tabel riwayat dengan baris berwarna sesuai status
+   - Counter: total aktivitas, berapa yang selesai vs tindak lanjut
+
+3. SUMMARY BAR di atas:
+   - Total aktivitas hari ini, mesin yang paling sering masuk jurnal
+
+Desain dengan aksen warna ungu/violet yang profesional.
+Buatkan dalam bentuk aplikasi web interaktif yang bisa langsung digunakan.</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: SPAREPART MA1 (TIM D) -->
+  <!-- ============================================================ -->
+  <div class="tab-panel" id="panel-sparepart">
+
+    <div class="team-header sparepart" data-emoji="⚙️">
+      <div class="team-label">Tim D · Modul CMMS</div>
+      <h2>Sparepart MA1</h2>
+      <div class="team-desc">Dashboard manajemen sparepart real-time — klasifikasi AI otomatis, pencatatan pengambilan, dan monitoring stok kritis. Bagian dari ekosistem CMMS.</div>
+    </div>
+
+    <div class="integration-badge" style="background:var(--sparepart-light);color:var(--sparepart);border:1.5px solid var(--sparepart-mid)">
+      🔗 Modul CMMS — Gunakan format kode mesin MCH-001 dan kode sparepart SPR-001 agar terintegrasi dengan Tim C & E
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">🔴 Sebelum</div>
+        <ul>
+          <li>Audit manual 1000+ item — memakan berhari-hari</li>
+          <li>Data stok gudang dan data mesin aktif terpisah</li>
+          <li>Deadstock menumpuk bertahun-tahun tanpa evaluasi</li>
+          <li>Konfirmasi ke maintenance satu per satu</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">🟢 Sesudah</div>
+        <ul>
+          <li>Dashboard stok real-time — langsung tahu yang kritis</li>
+          <li>AI klasifikasi Fast/Slow/Deadstock dalam hitungan detik</li>
+          <li>Pengambilan sparepart tercatat otomatis per mesin</li>
+          <li>Alert otomatis jika stok di bawah minimum</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps-section">
+      <div class="section-title">Langkah-langkah Pembuatan Prototype <div class="title-line"></div></div>
+      <div class="steps-list">
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--sparepart)">1</div>
+            <div class="step-title-text">Persiapan & Encode Data Sparepart</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Siapkan 2 file data yang sudah di-encode sebelum dimasukkan ke sistem:</p>
+            <table class="data-table">
+              <thead><tr>
+                <th style="background:var(--sparepart)">File</th>
+                <th style="background:var(--sparepart)">Kolom yang Diperlukan</th>
+              </tr></thead>
+              <tbody>
+                <tr><td><strong>Data Stok Sparepart</strong></td><td>Kode Part (SPR-001 dst), Deskripsi Generik, Kode Mesin Terkait, Jumlah Stok, Stok Minimum, Tanggal Terakhir Digunakan, Harga</td></tr>
+                <tr><td><strong>Daftar Mesin Aktif</strong></td><td>Kode Mesin (MCH-001 dst), Status (Aktif/Tidak Aktif), Lokasi</td></tr>
+              </tbody>
+            </table>
+            <div class="info-box warning">
+              <span class="info-icon">⚠️</span>
+              <div>Nama sparepart asli yang mengandung info sensitif harus diganti deskripsi generik. Contoh: "Bearing 6205 ZZ SKF" → "Bearing Tipe A ukuran B"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--sparepart)">2</div>
+            <div class="step-title-text">Analisa Awal Deadstock via Gemini AI Studio</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Sebelum membangun sistem, lakukan analisa awal untuk 1000+ item menggunakan Gemini AI Studio — ini yang paling cepat dan tidak perlu coding.</p>
+            <ol>
+              <li>Buka <strong>aistudio.google.com</strong> → New Prompt</li>
+              <li>Upload kedua file Excel (stok sparepart + mesin aktif) via ikon 📎</li>
+              <li>Paste prompt di bawah → klik Run</li>
+              <li>Hasil klasifikasi bisa langsung digunakan untuk tindakan segera</li>
+            </ol>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Saya upload 2 file: data stok sparepart dan daftar mesin aktif.
+Data sudah di-encode, nama asli diganti kode generik.
+
+Klasifikasikan setiap sparepart:
+FAST MOVING  = mesin terkait AKTIF dan digunakan dalam 90 hari terakhir
+SLOW MOVING  = mesin terkait AKTIF tapi tidak digunakan 90-365 hari
+DEADSTOCK    = mesin TIDAK AKTIF atau tidak digunakan lebih dari 365 hari
+
+Berikan:
+1. Tabel klasifikasi lengkap: Kode Part | Kategori | Alasan Singkat | Rekomendasi
+2. Summary: jumlah item per kategori
+3. Top 10 deadstock yang paling disarankan ditindaklanjuti segera
+4. Estimasi total nilai deadstock jika kolom harga tersedia
+Sajikan dalam format tabel yang rapi dan mudah dibaca.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--sparepart)">3</div>
+            <div class="step-title-text">Buat Web App Dashboard Sparepart</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan Google Apps Script + HTML untuk sistem manajemen sparepart.
+
+GOOGLE SHEETS "Manajemen Sparepart MA1":
+- Sheet "Stok Sparepart": Kode Part, Deskripsi, Kode Mesin Terkait,
+  Jumlah Stok, Stok Minimum, Tgl Terakhir Digunakan, Harga, Kategori
+- Sheet "Mesin Aktif": Kode Mesin, Status Mesin, Lokasi
+- Sheet "Transaksi": Timestamp, Kode Part, Jumlah, Jenis (Keluar/Masuk),
+  Peruntukan Mesin, Nama Teknisi, Keterangan
+- Sheet "Klasifikasi": Kode Part, Kategori, Rekomendasi, Tgl Analisa
+
+FITUR WEB APP:
+
+HALAMAN 1 - DASHBOARD STOK:
+- Summary cards: Total Item | Stok Kritis | Deadstock | Fast Moving
+- Tabel semua sparepart dengan indikator warna:
+  Hijau=stok aman, Kuning=mendekati minimum, Merah=stok kritis/habis
+- Filter berdasarkan kategori (Fast/Slow/Dead) dan kode mesin
+- Search by kode atau deskripsi
+
+HALAMAN 2 - TRANSAKSI:
+- Form pengambilan: pilih kode part, isi jumlah, pilih mesin peruntukan,
+  nama teknisi → Simpan → stok otomatis berkurang
+- Form penambahan stok: pilih kode part, isi jumlah masuk
+- Riwayat transaksi 30 hari terakhir
+
+HALAMAN 3 - KLASIFIKASI AI:
+- Tombol "Jalankan Klasifikasi" → sistem otomatis beri label per part
+  berdasarkan status mesin terkait dan tanggal terakhir digunakan
+- Hasil ditampilkan dalam tabel dengan warna per kategori
+- Tombol "Minta Rekomendasi Gemini" untuk deadstock
+
+OTOMASI Code.gs:
+- Alert email jika ada stok turun di bawah minimum
+- Laporan bulanan: ringkasan transaksi dan status klasifikasi
+
+Desain profesional dengan aksen warna amber/gold. Kode terpisah Code.gs dan index.html.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--sparepart)">4</div>
+            <div class="step-title-text">Prototype Visual dengan Gemini Canvas</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <div class="canvas-guide">
+              <div class="canvas-guide-header">
+                <div class="canvas-icon">🎨</div>
+                <div><strong>Gemini Canvas — Dashboard Sparepart</strong><span style="display:block">gemini.google.com → New Chat</span></div>
+              </div>
+              <div class="canvas-steps">
+                <div class="canvas-step"><div class="canvas-step-num">1</div><div class="canvas-step-text">Buka Gemini → New Chat → paste prompt di bawah</div></div>
+                <div class="canvas-step"><div class="canvas-step-num">2</div><div class="canvas-step-text">Coba klik tombol "Klasifikasi Otomatis" di Canvas untuk lihat AI bekerja</div></div>
+                <div class="canvas-step"><div class="canvas-step-num">3</div><div class="canvas-step-text">Coba filter "Tampilkan Deadstock Saja" untuk lihat fitur filter</div></div>
+              </div>
+            </div>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan dashboard manajemen sparepart interaktif untuk demo dengan:
+
+1. SUMMARY CARDS (atas): Total Item | Stok Kritis | Deadstock | Fast Moving
+   Gunakan warna berbeda per card
+
+2. TABEL SPAREPART (tengah):
+   Kolom: Kode Part, Deskripsi, Kode Mesin, Stok, Min Stok, Status Mesin, Kategori
+   Isi dengan 15 data contoh (campuran fast moving, slow moving, deadstock)
+   Warna baris: hijau=fast, kuning=slow, merah=dead
+
+3. TOMBOL AKSI:
+   "Klasifikasi Ulang" → update kategori semua item otomatis
+   "Filter Deadstock" → tampilkan hanya deadstock
+   "Catat Pengambilan" → form: pilih part, isi jumlah, mesin peruntukan → stok berkurang
+
+4. PANEL REKOMENDASI (bawah):
+   Daftar deadstock dengan rekomendasi: Dispose / Evaluasi / Simpan
+
+Desain dengan warna amber/gold sebagai aksen. Interaktif dan bisa langsung digunakan.</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: ENGPRO ADVANCE (TIM E) -->
+  <!-- ============================================================ -->
+  <div class="tab-panel" id="panel-engpro">
+
+    <div class="team-header engpro" data-emoji="🏭">
+      <div class="team-label">Tim E · Modul CMMS</div>
+      <h2>Engpro Advance</h2>
+      <div class="team-desc">Sistem monitoring real-time 49 mesin dengan QR Code, prediksi kerusakan berbasis AI, dan jadwal perawatan otomatis. Modul utama dalam ekosistem CMMS.</div>
+    </div>
+
+    <div class="integration-badge" style="background:var(--engpro-light);color:var(--engpro);border:1.5px solid var(--engpro-mid)">
+      🔗 Modul CMMS — Kode mesin MCH-001 s/d MCH-049 harus seragam dengan Tim C & D
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">🔴 Sebelum</div>
+        <ul>
+          <li>Monitoring 49 mesin dilakukan secara manual</li>
+          <li>Tidak ada sistem prediksi kapan mesin perlu diservis</li>
+          <li>Jadwal perawatan di kertas — tidak real-time</li>
+          <li>Laporan serah terima tidak terstandar</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">🟢 Sesudah</div>
+        <ul>
+          <li>Scan QR di mesin → langsung input laporan kondisi</li>
+          <li>Dashboard real-time: status 49 mesin sekaligus</li>
+          <li>Jadwal perawatan dihitung otomatis + alert H-7</li>
+          <li>Prediksi kerusakan berbasis historis dari Gemini AI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps-section">
+      <div class="section-title">Langkah-langkah Pembuatan Prototype <div class="title-line"></div></div>
+      <div class="steps-list">
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--engpro)">1</div>
+            <div class="step-title-text">Persiapan Google Sheets</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <ol>
+              <li>Buat Google Sheets baru → beri nama: <strong>"Monitoring Mesin - Engpro"</strong></li>
+              <li>Buat 4 sheet berikut:</li>
+            </ol>
+            <table class="data-table">
+              <thead><tr>
+                <th style="background:var(--engpro)">Nama Sheet</th>
+                <th style="background:var(--engpro)">Fungsi</th>
+                <th style="background:var(--engpro)">Kolom Utama</th>
+              </tr></thead>
+              <tbody>
+                <tr><td><strong>Laporan Mesin</strong></td><td>Semua laporan masuk dari operator</td><td>Timestamp, Kode Mesin, Jenis Laporan, Kondisi, Jam Operasi, Deskripsi, Pelapor</td></tr>
+                <tr><td><strong>Master Mesin</strong></td><td>Data induk 49 mesin</td><td>Kode Mesin, Lokasi, Interval Perawatan (hari), Tgl Perawatan Terakhir, Total Jam Operasi</td></tr>
+                <tr><td><strong>Jadwal Perawatan</strong></td><td>Jadwal otomatis per mesin</td><td>Kode Mesin, Jadwal Berikutnya, Status, Prioritas</td></tr>
+                <tr><td><strong>Alert History</strong></td><td>Riwayat notifikasi yang dikirim</td><td>Timestamp, Kode Mesin, Jenis Alert, Penerima</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--engpro)">2</div>
+            <div class="step-title-text">Buat Web App + Setup QR Code per Mesin</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Fitur unggulan Tim E adalah QR Code per mesin — scan → form langsung terbuka dengan kode mesin sudah terisi otomatis.</p>
+            <div class="info-box success">
+              <span class="info-icon">📱</span>
+              <div><strong>Cara kerja QR Code per mesin:</strong> Setiap mesin punya URL unik dengan parameter kode mesin di akhirnya. Contoh: <code style="background:#E8F4FB;padding:2px 6px;border-radius:4px;font-size:12px">[URL web app]?mesin=MCH-001</code>. QR Code dibuat dari URL ini, sehingga saat di-scan langsung buka form dengan MCH-001 sudah terisi.</div>
+            </div>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan Google Apps Script + HTML untuk monitoring 49 mesin produksi.
+
+GOOGLE SHEETS "Monitoring Mesin - Engpro":
+- Sheet "Laporan Mesin": Timestamp, Kode Mesin, Jenis Laporan
+  (Rutin/Kerusakan/Serah Terima/Selesai Perbaikan), Kondisi Mesin
+  (Normal/Perlu Perhatian/Rusak/Dalam Perbaikan), Jam Operasi,
+  Deskripsi, Nama Pelapor
+- Sheet "Master Mesin": Kode Mesin, Lokasi, Interval Perawatan (hari),
+  Tgl Perawatan Terakhir, Total Jam Operasi Kumulatif
+- Sheet "Jadwal Perawatan": Kode Mesin, Jadwal Berikutnya, Status, Prioritas
+
+FITUR WEB APP:
+
+HALAMAN 1 - FORM LAPORAN (dibuka via QR Scan):
+- Baca parameter URL ?mesin=MCH-001 → isi otomatis kode mesin
+- Dropdown Jenis Laporan dan Kondisi Mesin
+- Input Jam Operasi hari ini dan Deskripsi kondisi
+- Input Nama Pelapor
+- Tombol "Kirim Laporan"
+- Setelah kirim: tampilkan konfirmasi + info jadwal perawatan mesin ini
+
+HALAMAN 2 - DASHBOARD MONITORING:
+- Grid 49 mesin (untuk demo cukup 10) dengan kartu berwarna:
+  Hijau=Normal, Kuning=Perlu Perhatian, Merah=Rusak, Biru=Dalam Perbaikan
+- Counter di atas: mesin per kondisi
+- Panel JADWAL: mesin yang perawatannya dalam 7 hari ke depan (warna oranye)
+- Panel ALERT: mesin kondisi Rusak atau Perlu Perhatian
+
+HALAMAN 3 - DETAIL MESIN:
+- Klik mesin di dashboard → tampil: historis laporan, total jam operasi,
+  jadwal perawatan berikutnya
+- Tombol "Prediksi AI" → kirim historis ke Gemini untuk analisa prediktif
+
+OTOMASI Code.gs:
+- Setiap laporan Rusak/Perlu Perhatian masuk → langsung email ke supervisor
+- Update Total Jam Operasi di Master Mesin tiap ada laporan baru
+- Hitung otomatis Jadwal Perawatan Berikutnya dari Interval + Tgl Terakhir
+- Setiap Jumat jam 15.00 → kirim ringkasan mingguan ke manajer
+
+Desain dashboard informatif dengan kode warna jelas. Kode terpisah Code.gs dan index.html.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--engpro)">3</div>
+            <div class="step-title-text">Deploy & Buat QR Code per Mesin</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <ol>
+              <li>Di Apps Script → <strong>Deploy → New Deployment → Web App</strong></li>
+              <li>Execute as: <strong>Me</strong> | Who has access: <strong>Anyone</strong> → Deploy → copy URL</li>
+              <li>Untuk setiap mesin, buat URL unik:</li>
+            </ol>
+            <div class="info-box tip">
+              <span class="info-icon">💡</span>
+              <div>
+                URL mesin MCH-001: <code style="background:#E8F1FB;padding:2px 6px;border-radius:4px;font-size:12px">[URL web app]?mesin=MCH-001</code><br>
+                URL mesin MCH-002: <code style="background:#E8F1FB;padding:2px 6px;border-radius:4px;font-size:12px">[URL web app]?mesin=MCH-002</code><br><br>
+                Buka <strong>qr-code-generator.com</strong> → paste URL per mesin → Generate → Download → Print → Tempel di mesin yang sesuai.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--engpro)">4</div>
+            <div class="step-title-text">Prompt Prediksi Kerusakan dengan Gemini</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <p>Setelah historis terkumpul beberapa minggu, gunakan Gemini untuk prediksi kerusakan:</p>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Berikut historis laporan mesin [Kode Mesin] selama 3 bulan:
+[paste data dari sheet Laporan Mesin untuk mesin ini]
+
+Total jam operasi kumulatif: [angka] jam
+Interval perawatan standar: setiap [angka] hari
+Perawatan terakhir: [tanggal]
+
+Berdasarkan data di atas, berikan:
+1. Pola kerusakan yang sering terjadi dan kemungkinan penyebabnya
+2. Prediksi kapan mesin ini kemungkinan perlu perbaikan berikutnya
+3. Sparepart apa yang sebaiknya disiapkan berdasarkan histori kerusakan
+4. Rekomendasi perubahan interval perawatan jika diperlukan
+Gunakan bahasa yang mudah dipahami oleh teknisi dan manajer.</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num" style="background:var(--engpro)">5</div>
+            <div class="step-title-text">Prototype Visual dengan Gemini Canvas</div>
+            <div class="step-toggle">▾</div>
+          </div>
+          <div class="step-body">
+            <div class="canvas-guide">
+              <div class="canvas-guide-header">
+                <div class="canvas-icon">🎨</div>
+                <div><strong>Gemini Canvas — Dashboard Monitoring 49 Mesin</strong><span style="display:block">gemini.google.com → New Chat</span></div>
+              </div>
+              <div class="canvas-steps">
+                <div class="canvas-step"><div class="canvas-step-num">1</div><div class="canvas-step-text">Buka Gemini → New Chat → paste prompt di bawah</div></div>
+                <div class="canvas-step"><div class="canvas-step-num">2</div><div class="canvas-step-text">Klik salah satu mesin di grid dashboard untuk simulasi input laporan</div></div>
+                <div class="canvas-step"><div class="canvas-step-num">3</div><div class="canvas-step-text">Ubah kondisi mesin menjadi "Rusak" → lihat kartu mesin berubah merah dan alert muncul</div></div>
+              </div>
+            </div>
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
+              <pre>Buatkan dashboard monitoring mesin produksi interaktif dengan:
+
+1. HEADER & SUMMARY:
+   - Judul "Engpro Advance — Monitoring System"
+   - 4 counter cards: Normal | Perlu Perhatian | Rusak | Dalam Perbaikan
+
+2. GRID MESIN (10 mesin untuk demo: MCH-001 s/d MCH-010):
+   - Kartu per mesin: kode mesin, lokasi, kondisi, jam operasi hari ini
+   - Warna kartu: Hijau=Normal, Kuning=Perlu Perhatian, Merah=Rusak, Biru=Perbaikan
+   - Klik kartu → panel detail muncul dengan form input laporan
+
+3. PANEL INPUT LAPORAN (muncul saat klik mesin):
+   - Kode mesin otomatis terisi
+   - Pilih kondisi, input jam operasi, deskripsi, nama pelapor
+   - Tombol Kirim → kartu mesin update warna + counter di atas update
+
+4. PANEL JADWAL (bawah kiri):
+   - Daftar 3-5 mesin yang perawatannya dalam 7 hari ke depan
+   - Warna oranye untuk jadwal dekat, merah untuk yang sudah lewat
+
+5. PANEL ALERT (bawah kanan):
+   - Muncul otomatis jika ada mesin kondisi Rusak atau Perlu Perhatian
+
+Desain dengan aksen biru profesional. Interaktif dan bisa langsung digunakan.</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-container -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>AI Hackathon — Panduan Prototype &nbsp;·&nbsp; <strong>Semua kelompok semangat!</strong> 🚀</p>
+  <p style="margin-top:8px;font-size:12px">Platform wajib: Gemini AI · Google AI Studio · NotebookLM · Apps Script · Google Sheets</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
