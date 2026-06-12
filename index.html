@@ -929,102 +929,6 @@ Gunakan bahasa yang mudah dipahami oleh teknisi dan supervisor.</pre>
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
             <div class="step-num" style="background:var(--sparepart)">2</div>
-            <div class="step-title-text">Visualisasi Cepat dengan Gemini Canvas</div>
-            <div class="step-toggle">▾</div>
-          </div>
-          <div class="step-body">
-            <p>Sebelum membangun sistem di Google Sheets, buat dulu prototype visual menggunakan Gemini Canvas. Ini cara tercepat untuk menyepakati tampilan dashboard bersama tim — tanpa perlu coding sama sekali.</p>
-
-            <div class="info-box tip">
-              <span class="info-icon">💡</span>
-              <div><strong>Tips:</strong> Tunjukkan hasil Canvas ke supervisor atau kepala gudang untuk konfirmasi apakah tampilan sudah sesuai kebutuhan sebelum lanjut ke tahap coding.</div>
-            </div>
-
-            <div class="canvas-guide">
-              <div class="canvas-guide-header">
-                <div class="canvas-icon">🎨</div>
-                <div><strong>Gemini Canvas — Dashboard Sparepart MA1</strong><span style="display:block">gemini.google.com → New Chat</span></div>
-              </div>
-              <div class="canvas-steps">
-                <div class="canvas-step"><div class="canvas-step-num">1</div><div class="canvas-step-text">Buka <strong>gemini.google.com</strong> → login → klik <strong>New Chat</strong></div></div>
-                <div class="canvas-step"><div class="canvas-step-num">2</div><div class="canvas-step-text">Copy-paste prompt di bawah ke kotak chat → tekan Enter</div></div>
-                <div class="canvas-step"><div class="canvas-step-num">3</div><div class="canvas-step-text">Panel Canvas terbuka di kanan — coba klik tombol <strong>"Klasifikasi Otomatis"</strong> untuk lihat AI bekerja</div></div>
-                <div class="canvas-step"><div class="canvas-step-num">4</div><div class="canvas-step-text">Coba tombol <strong>"Filter: Stok Kritis"</strong> untuk lihat item yang perlu segera ditindaklanjuti</div></div>
-                <div class="canvas-step"><div class="canvas-step-num">5</div><div class="canvas-step-text">Coba form <strong>"Catat Pengambilan"</strong> → isi kode item dan jumlah → lihat stok berkurang otomatis</div></div>
-                <div class="canvas-step"><div class="canvas-step-num">6</div><div class="canvas-step-text">Setelah tampilan disetujui tim, lanjut ke langkah berikutnya untuk membangun sistem nyata</div></div>
-              </div>
-            </div>
-
-            <div class="prompt-box">
-              <button class="copy-btn" onclick="copyPrompt(this)">Salin</button>
-              <pre>Buatkan dashboard manajemen sparepart interaktif untuk demo dengan data contoh berikut:
-
-DATA SPAREPART (gunakan data ini sebagai contoh):
-Kode: 20-00002495 | Nama: BATU GERINDA POTONG 4X1MM | Min:10 | Max:30 | Stok:8 | Kat:FAST MOVING
-Kode: 20-00002697 | Nama: BEARING 6000 | Min:5 | Max:10 | Stok:3 | Kat:FAST MOVING
-Kode: 20-00006669 | Nama: PU KOPLING FCL 160 | Min:8 | Max:12 | Stok:2 | Kat:FAST MOVING
-Kode: 20-00007252 | Nama: SEAL TAPE TBA @12PCS | Min:10 | Max:25 | Stok:15 | Kat:FAST MOVING
-Kode: 20-00003332 | Nama: DYNABOLT 10X65MM | Min:10 | Max:20 | Stok:4 | Kat:FAST MOVING
-Kode: 20-00004672 | Nama: KAPI 3 | Min:5 | Max:12 | Stok:7 | Kat:FAST MOVING
-Kode: 20-00002722 | Nama: BEARING 6205 | Min:5 | Max:10 | Stok:9 | Kat:SLOW MOVING
-Kode: 20-00005274 | Nama: LAMPU TL LED 16W | Min:10 | Max:20 | Stok:12 | Kat:SLOW MOVING
-Kode: 20-00005657 | Nama: MOTOR+GEARBOX NORD | Min:2 | Max:2 | Stok:2 | Kat:DEADSTOCK
-Kode: 20-00003466 | Nama: DRAG LAGER FORKLIFT | Min:2 | Max:2 | Stok:2 | Kat:DEADSTOCK
-Kode: 20-00001677 | Nama: SARUNG TANGAN | Min:3 | Max:7 | Stok:1 | Kat:FAST MOVING
-Kode: 20-00008367 | Nama: V BELT B-56 | Min:2 | Max:4 | Stok:3 | Kat:FAST MOVING
-Kode: 20-00006726 | Nama: RADIATOR COOLENT | Min:4 | Max:6 | Stok:0 | Kat:FAST MOVING
-Kode: 20-00002712 | Nama: BEARING 608 ZZ | Min:5 | Max:10 | Stok:6 | Kat:FAST MOVING
-Kode: 20-00004292 | Nama: ISOLASI LISTRIK | Min:5 | Max:10 | Stok:4 | Kat:FAST MOVING
-
-FITUR DASHBOARD:
-
-1. SUMMARY CARDS (bagian atas, 4 kartu):
-   - Total Item Sparepart (angka total)
-   - Stok Kritis / Habis (stok ≤ Min, warna merah)
-   - Fast Moving (transaksi aktif, warna hijau)  
-   - Deadstock (tidak ada transaksi >6 bulan, warna abu)
-
-2. TABEL UTAMA (tengah):
-   Kolom: Kode Item | Nama Item | Stok | Min | Max | Status Stok | Kategori
-   - Warna baris: Merah=stok ≤ Min (KRITIS), Kuning=stok antara Min-Max (WASPADA), Hijau=stok ≥ Max (AMAN)
-   - Badge kategori: hijau=FAST MOVING, kuning=SLOW MOVING, abu=DEADSTOCK
-
-3. TOMBOL FILTER di atas tabel:
-   [Semua] [Stok Kritis] [Fast Moving] [Slow Moving] [Deadstock]
-   Klik filter → tabel otomatis menyaring data
-
-4. FORM PENGAMBILAN SPAREPART (panel kanan atau modal popup):
-   - Input: Kode Item (dropdown), Jumlah Diambil, Peruntukan/Keterangan
-   - Tombol "Catat Pengambilan" → stok di tabel langsung berkurang
-   - Jika stok setelah pengambilan ≤ Min → muncul peringatan merah: "⚠️ STOK KRITIS!"
-
-5. KLASIFIKASI OTOMATIS:
-   Tombol "Jalankan Klasifikasi" → sistem otomatis update kategori berdasarkan:
-   - FAST MOVING: stok di bawah atau mendekati Min (sering dipakai)
-   - SLOW MOVING: stok masih dalam rentang normal
-   - DEADSTOCK: stok penuh di Max dan tidak pernah berkurang
-
-6. INTERPRETASI DINAMIS (tanpa AI API):
-   Panel di bawah tabel yang otomatis menampilkan:
-   - "🔴 [X] item stok kritis — perlu reorder segera"
-   - "⚡ Item paling sering diambil bulan ini: [nama item]"
-   - "💤 [X] item deadstock — pertimbangkan evaluasi"
-   - Rekomendasi tindakan berdasarkan kondisi stok saat ini
-
-Desain dengan warna amber/gold sebagai aksen utama, tampilan profesional seperti software gudang.
-Buatkan dalam bentuk aplikasi web interaktif yang bisa langsung digunakan.</pre>
-            </div>
-            <div class="info-box success">
-              <span class="info-icon">✅</span>
-              <div>Setelah tampilan Canvas disetujui, lanjut ke langkah berikutnya untuk membangun sistem nyata yang tersambung ke Google Sheets dengan data aktual.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="step-card" onclick="toggleStep(this)">
-          <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">3</div>
             <div class="step-title-text">Setup Google Sheets — Import Data & Tambah Sheet Baru</div>
             <div class="step-toggle">▾</div>
           </div>
@@ -1068,10 +972,10 @@ Buatkan dalam bentuk aplikasi web interaktif yang bisa langsung digunakan.</pre>
           </div>
         </div>
 
-        <!-- STEP 4 -->
+        <!-- STEP 3 -->
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">4</div>
+            <div class="step-num" style="background:var(--sparepart)">3</div>
             <div class="step-title-text">Buat Apps Script — Logika Utama Sistem (Code.gs)</div>
             <div class="step-toggle">▾</div>
           </div>
@@ -1159,10 +1063,10 @@ Tambahkan komentar penjelasan di setiap bagian kode.</pre>
           </div>
         </div>
 
-        <!-- STEP 5 -->
+        <!-- STEP 4 -->
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">5</div>
+            <div class="step-num" style="background:var(--sparepart)">4</div>
             <div class="step-title-text">Buat Tampilan Web App (index.html)</div>
             <div class="step-toggle">▾</div>
           </div>
@@ -1237,10 +1141,10 @@ Semua interaksi menggunakan google.script.run dengan withSuccessHandler dan with
           </div>
         </div>
 
-        <!-- STEP 6 -->
+        <!-- STEP 5 -->
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">6</div>
+            <div class="step-num" style="background:var(--sparepart)">5</div>
             <div class="step-title-text">Test Script & Isi Stok Awal</div>
             <div class="step-toggle">▾</div>
           </div>
@@ -1276,10 +1180,10 @@ Semua interaksi menggunakan google.script.run dengan withSuccessHandler dan with
           </div>
         </div>
 
-        <!-- STEP 7 -->
+        <!-- STEP 6 -->
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">7</div>
+            <div class="step-num" style="background:var(--sparepart)">6</div>
             <div class="step-title-text">Deploy Web App & Akses dari HP</div>
             <div class="step-toggle">▾</div>
           </div>
@@ -1309,10 +1213,10 @@ Semua interaksi menggunakan google.script.run dengan withSuccessHandler dan with
           </div>
         </div>
 
-        <!-- STEP 8 -->
+        <!-- STEP 7 -->
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">8</div>
+            <div class="step-num" style="background:var(--sparepart)">7</div>
             <div class="step-title-text">Setup Alert Email Otomatis</div>
             <div class="step-toggle">▾</div>
           </div>
@@ -1352,10 +1256,10 @@ Semua interaksi menggunakan google.script.run dengan withSuccessHandler dan with
           </div>
         </div>
 
-        <!-- STEP 9 -->
+        <!-- STEP 8 -->
         <div class="step-card" onclick="toggleStep(this)">
           <div class="step-header">
-            <div class="step-num" style="background:var(--sparepart)">9</div>
+            <div class="step-num" style="background:var(--sparepart)">8</div>
             <div class="step-title-text">Interpretasi Dinamis Tanpa Gemini API</div>
             <div class="step-toggle">▾</div>
           </div>
